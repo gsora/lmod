@@ -1,2 +1,2 @@
 # lmod
-Linux modules handling module written in Go.
+Linux modules handling library written in Go.
