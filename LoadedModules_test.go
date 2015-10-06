@@ -6,7 +6,11 @@ import (
 )
 
 func TestLoadedModules(t *testing.T) {
-    modlist := LoadedModules()
+    modlist, err := LoadedModules()
+
+    if err != nil {
+        t.Errorf(err.Error())
+    }
 
     for _,element := range modlist {
         a := fmt.Sprint(element, "\n")
