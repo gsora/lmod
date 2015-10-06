@@ -1,11 +1,16 @@
 package lmod
 
-func IsModuleLoaded(moduleName string) (bool) {
-    for _,element := range LoadedModules() {
+func IsModuleLoaded(moduleName string) (bool, error) {
+    mods, err := LoadedModules()
+
+    if err != nil {
+        return false, err
+    }
+
+    for _,element := range mods {
         if element == moduleName {
-            return true
+            return true, nil
         }
     }
-    
-    return false
+    return false, nil
 }
